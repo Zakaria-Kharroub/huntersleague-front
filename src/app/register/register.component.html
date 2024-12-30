@@ -1,36 +1,43 @@
-<div class="d-flex justify-content-center align-items-center vh-100">
+<div class="d-flex justify-content-center align-items-center min-vh-100">
   <div class="container" style="max-width: 500px;">
     <h2 class="mb-4 text-center">Register</h2>
-    <form>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="Enter your username" />
+        <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter your username" />
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email" />
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email" />
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password" />
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password" />
       </div>
-
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Enter your first name" />
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Enter your last name" />
+      </div>
       <div class="mb-3">
         <label for="cin" class="form-label">CIN</label>
-        <input type="text" class="form-control" id="cin" placeholder="Enter your CIN" />
+        <input type="text" class="form-control" id="cin" formControlName="cin" placeholder="Enter your CIN" />
       </div>
       <div class="mb-3">
         <label for="nationality" class="form-label">Nationality</label>
-        <input type="text" class="form-control" id="nationality" placeholder="Enter your nationality" />
+        <input type="text" class="form-control" id="nationality" formControlName="nationality" placeholder="Enter your nationality" />
       </div>
       <div class="mb-3">
         <label for="role" class="form-label">Role</label>
-        <select class="form-select" id="role">
-          <option value="ADMIN" selected>Admin</option>
-          <option value="USER">User</option>
+        <select class="form-select" id="role" formControlName="role">
+          <option value="ADMIN">Admin</option>
+          <option value="USER" selected>User</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary w-100">Register</button>
+      <button type="submit" class="btn btn-danger w-100">Register</button>
     </form>
   </div>
 </div>
