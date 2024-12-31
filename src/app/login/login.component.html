@@ -1,16 +1,43 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
   <div class="container" style="max-width: 400px;">
     <h2 class="mb-4 text-center">Login</h2>
-    <form>
+
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email" />
+        <label for="login" class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="login"
+          formControlName="login"
+          placeholder="Enter your username"
+        />
+        <div *ngIf="loginForm.get('login')?.touched && loginForm.get('login')?.errors?.['required']" class="text-danger">
+          Username is required
+        </div>
       </div>
+
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password" />
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']" class="text-danger">
+          Password is required
+        </div>
       </div>
-      <button type="submit" class="btn btn-danger w-100">Login</button>
+
+      <button type="submit" class="btn btn-danger w-100" [disabled]="!loginForm.valid">
+        Login
+      </button>
     </form>
   </div>
 </div>
