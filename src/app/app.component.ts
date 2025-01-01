@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NgIf} from "@angular/common";
+import {AuthService} from "./services/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,13 @@ import {NgIf} from "@angular/common";
 })
 export class AppComponent {
   title = 'huntersleaguefront';
- isAuthenticate(): boolean {
-   return !localStorage.getItem("access_token")
- }
+  constructor(private authService:AuthService) {}
+
+  isAuthenticated():boolean{
+    return !this.authService.isAuthenticated();
+  }
+  logout():void{
+    this.authService.logout();
+  }
+
 }
