@@ -1,71 +1,128 @@
-<div class="d-flex justify-content-center align-items-center min-vh-100">
+<div class="d-flex justify-content-center align-items-center ">
   <div class="container" style="max-width: 500px;">
     <h2 class="mb-4 text-center">Register</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label for="firstName" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Enter your first name" />
-        <div *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']" class="text-danger">
-          First name is required
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <label for="lastName" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Enter your last name" />
-        <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']" class="text-danger">
-          Last name is required
-        </div>
-      </div>
-
+      <!-- Username -->
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter your username" />
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          formControlName="username"
+          placeholder="Enter your username"
+        />
         <div *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['required']" class="text-danger">
           Username is required
         </div>
       </div>
 
+      <!-- First Name and Last Name (Flexbox) -->
+      <div class="d-flex justify-content-between mb-3">
+        <div class="me-2 w-50">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName="firstName"
+            placeholder="Enter your first name"
+          />
+          <div *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']" class="text-danger">
+            First name is required
+          </div>
+        </div>
+        <div class="ms-2 w-50">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            formControlName="lastName"
+            placeholder="Enter your last name"
+          />
+          <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']" class="text-danger">
+            Last name is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email" />
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
         <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']" class="text-danger">
           Valid email is required
         </div>
       </div>
 
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password" />
-        <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']" class="text-danger">
-          Password is required
+      <!-- Password and Confirm Password (Flexbox) -->
+      <div class="d-flex justify-content-between mb-3">
+        <div class="me-2 w-50">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']" class="text-danger">
+            Password is required
+          </div>
+        </div>
+        <div class="ms-2 w-50">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm your password"
+          />
+          <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.hasError('mismatch')" class="text-danger">
+            Passwords do not match
+          </div>
         </div>
       </div>
 
-      <div class="mb-3">
-        <label for="confirmPassword" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password" />
-        <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.hasError('mismatch')" class="text-danger">
-          Passwords do not match
-        </div>
-      </div>
-
+      <!-- CIN -->
       <div class="mb-3">
         <label for="cin" class="form-label">CIN</label>
-        <input type="text" class="form-control" id="cin" formControlName="cin" placeholder="Enter your CIN" />
+        <input
+          type="text"
+          class="form-control"
+          id="cin"
+          formControlName="cin"
+          placeholder="Enter your CIN"
+        />
         <div *ngIf="registerForm.get('cin')?.touched && registerForm.get('cin')?.errors?.['required']" class="text-danger">
           CIN is required
         </div>
       </div>
 
+      <!-- Nationality -->
       <div class="mb-3">
         <label for="nationality" class="form-label">Nationality</label>
-        <input type="text" class="form-control" id="nationality" formControlName="nationality" placeholder="Enter your nationality" />
+        <input
+          type="text"
+          class="form-control"
+          id="nationality"
+          formControlName="nationality"
+          placeholder="Enter your nationality"
+        />
         <div *ngIf="registerForm.get('nationality')?.touched && registerForm.get('nationality')?.errors?.['required']" class="text-danger">
           Nationality is required
         </div>
       </div>
 
+      <!-- Submit Button -->
       <button type="submit" class="btn btn-danger w-100" [disabled]="!registerForm.valid">Register</button>
     </form>
   </div>
