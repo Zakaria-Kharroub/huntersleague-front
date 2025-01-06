@@ -1,0 +1,79 @@
+<div class="container-fluid competitions-container">
+  <h2 class="mb-4">Gestion des Compétitions</h2>
+
+  <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCompetitionModal">
+    <i class="bi bi-plus-circle me-2"></i>Ajouter une compétition
+  </button>
+
+  <div class="table-responsive">
+    <table class="table table-hover competition-table">
+      <thead>
+      <tr>
+        <th>Code</th>
+        <th>Date</th>
+        <th>Lieu</th>
+        <th>Participants Min-Max</th>
+        <th>Inscription Ouverte</th>
+        <th>Type d'Espèce</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Table rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Add Competition Modal -->
+<div class="modal fade" id="addCompetitionModal" tabindex="-1" aria-labelledby="addCompetitionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCompetitionModalLabel">Ajouter une compétition</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="code" class="form-label">Code</label>
+            <input type="text" class="form-control" id="code" required pattern="[a-z]+-\d{4}-\d{2}-\d{2}">
+            <small class="form-text text-muted">Format: location-YYYY-MM-DD (ex: tinghir-2024-11-12)</small>
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="datetime-local" class="form-control" id="date" required>
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Lieu</label>
+            <input type="text" class="form-control" id="location" required>
+          </div>
+          <div class="mb-3">
+            <label for="minParticipants" class="form-label">Nombre minimum de participants</label>
+            <input type="number" class="form-control" id="minParticipants" required min="1">
+          </div>
+          <div class="mb-3">
+            <label for="maxParticipants" class="form-label">Nombre maximum de participants</label>
+            <input type="number" class="form-control" id="maxParticipants" required min="1">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="openRegistration">
+            <label class="form-check-label" for="openRegistration">Inscription ouverte</label>
+          </div>
+          <div class="mb-3">
+            <label for="speciesType" class="form-label">Type d'espèce</label>
+            <select class="form-select" id="speciesType" required>
+              <option value="SEA">Mer</option>
+              <option value="BIG_GAME">Gros gibier</option>
+              <option value="BIRD">Oiseau</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>

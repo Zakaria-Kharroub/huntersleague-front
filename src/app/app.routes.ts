@@ -5,6 +5,7 @@ import {LoginComponent} from "./login/login.component";
 import {authGuard} from "./guards/auth.guard";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {UsersComponent} from "./users/users.component";
+import {CompetitionsComponent} from "./competitions/competitions.component";
 
 export const routes: Routes = [
   {path:'',component: HomeComponent  ,canActivate:[authGuard]}, // default route
@@ -15,7 +16,8 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     children: [
-      { path: 'users', component: UsersComponent }
+      { path: 'users', component: UsersComponent },
+      {path:'competitions',component:CompetitionsComponent}
     ]
   }
 ];

@@ -1,27 +1,26 @@
-/* users.component.css */
-.users-container {
+.competitions-container {
   padding: 20px;
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.user-table {
+.competition-table {
   background-color: #ffffff;
   border-radius: 8px;
   overflow: hidden;
 }
 
-.user-table thead {
+.competition-table thead {
   background-color: #3498db;
   color: #ffffff;
 }
 
-.user-table th, .user-table td {
+.competition-table th, .competition-table td {
   vertical-align: middle;
 }
 
-.user-table tbody tr:hover {
+.competition-table tbody tr:hover {
   background-color: #e8f4f8;
 }
 
@@ -45,8 +44,13 @@
   border-color: #c0392b;
 }
 
+.badge {
+  font-size: 0.8em;
+  padding: 0.35em 0.65em;
+}
+
 @media (max-width: 768px) {
-  .user-table {
+  .competition-table {
     font-size: 0.9em;
   }
 

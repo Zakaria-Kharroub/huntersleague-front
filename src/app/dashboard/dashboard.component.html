@@ -1,169 +1,24 @@
-<h1 class="mt-5">dashboard</h1>
-<div class="dashboard-container">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="logo">
-      <span class="logo-icon">CL</span>
-      <span class="logo-text">Codinglab</span>
-    </div>
+<button id="sidebar-toggle" (click)="toggleSidebar()">
+  <i class="bi bi-list"></i>
+</button>
 
-    <nav class="nav-menu">
-      <a href="#" class="nav-item active">
-        <i class="nav-icon">🏠</i>
-        <span>Dashboard</span>
-      </a>
-      <a href="#" class="nav-item">
-        <i class="nav-icon">📄</i>
-        <span>Content</span>
-      </a>
-      <a href="#" class="nav-item">
-        <i class="nav-icon">📊</i>
-        <span>Analytics</span>
-      </a>
-      <a href="#" class="nav-item">
-        <i class="nav-icon">👍</i>
-        <span>Likes</span>
-      </a>
-      <a href="#" class="nav-item">
-        <i class="nav-icon">💬</i>
-        <span>Comments</span>
-      </a>
-      <a href="#" class="nav-item">
-        <i class="nav-icon">↗️</i>
-        <span>Share</span>
-      </a>
-    </nav>
+<app-asidebar></app-asidebar>
 
-    <div class="sidebar-footer">
-      <a href="#" class="nav-item">
-        <i class="nav-icon">↪️</i>
-        <span>Logout</span>
-      </a>
-      <div class="dark-mode-toggle">
-        <i class="nav-icon">🌙</i>
-        <span>Dark Mode</span>
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider"></span>
-        </label>
+<div id="content">
+  <!-- Header -->
+  <div class="header mb-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h1 class="fw-bold mb-0">Dashboard</h1>
+        <p class="mb-0">Welcome to hunters league Dashboard</p>
       </div>
     </div>
-  </aside>
+  </div>
 
   <!-- Main Content -->
-  <main class="main-content">
-    <!-- Header -->
-    <header class="header">
-      <div class="search-bar">
-        <input type="text" placeholder="Search here...">
-      </div>
-      <div class="profile">
-        <img src="profile-placeholder.jpg" alt="Profile" class="profile-img">
-      </div>
-    </header>
-
-    <!-- Dashboard Content -->
-    <div class="dashboard-content">
-      <h1 class="page-title">Dashboard</h1>
-
-      <!-- Stats Cards -->
-      <div class="stats-grid">
-        <div class="stat-card bg-blue">
-          <div class="stat-icon">👍</div>
-          <div class="stat-info">
-            <h3>Total Likes</h3>
-            <p class="stat-number">50,120</p>
-          </div>
-        </div>
-
-        <div class="stat-card bg-yellow">
-          <div class="stat-icon">💬</div>
-          <div class="stat-info">
-            <h3>Comments</h3>
-            <p class="stat-number">25,120</p>
-          </div>
-        </div>
-
-        <div class="stat-card bg-purple">
-          <div class="stat-icon">↗️</div>
-          <div class="stat-info">
-            <h3>Total Share</h3>
-            <p class="stat-number">10,320</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Recent Activity Table -->
-      <div class="activity-section">
-        <h2>Recent Activity</h2>
-        <div class="table-container">
-          <table class="activity-table">
-            <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Joined</th>
-              <th>Type</th>
-              <th>Status</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>Prem Shahi</td>
-              <td>premshahi.com</td>
-              <td>2022-02-12</td>
-              <td>New</td>
-              <td><span class="status liked">Liked</span></td>
-            </tr>
-            <tr>
-              <td>Deepa Chand</td>
-              <td>deepachandd0gmail.com</td>
-              <td>2022-02-12</td>
-              <td>Member</td>
-              <td><span class="status shared">Shared</span></td>
-            </tr>
-            <!-- Add more rows as needed -->
-            </tbody>
-          </table>
-        </div>
-      </div>
+  <main>
+    <div class="content">
+      <router-outlet></router-outlet>
     </div>
   </main>
 </div>
-
-
-<!--<div class="dashboard-container">-->
-<!--  <aside [class.collapsed]="isSidebarCollapsed">-->
-<!--    <div class="sidebar-header">-->
-<!--      <h3>Hunter's League</h3>-->
-<!--      <button class="toggle-btn" (click)="toggleSidebar()">-->
-<!--        <i class="fas fa-bars"></i>-->
-<!--      </button>-->
-<!--    </div>-->
-
-<!--    <nav class="sidebar-nav">-->
-<!--      <a routerLink="users" routerLinkActive="active">-->
-<!--        <i class="fas fa-users"></i>-->
-<!--        <span>Users</span>-->
-<!--      </a>-->
-<!--      <a routerLink="species" routerLinkActive="active">-->
-<!--        <i class="fas fa-paw"></i>-->
-<!--        <span>Species</span>-->
-<!--      </a>-->
-<!--      <a routerLink="competitions" routerLinkActive="active">-->
-<!--        <i class="fas fa-trophy"></i>-->
-<!--        <span>Competitions</span>-->
-<!--      </a>-->
-<!--      <a routerLink="participations" routerLinkActive="active">-->
-<!--        <i class="fas fa-handshake"></i>-->
-<!--        <span>Participations</span>-->
-<!--      </a>-->
-<!--    </nav>-->
-<!--  </aside>-->
-
-<!--  <main>-->
-<!--    <div class="content">-->
-<!--      <router-outlet></router-outlet>-->
-<!--    </div>-->
-<!--  </main>-->
-<!--</div>-->
