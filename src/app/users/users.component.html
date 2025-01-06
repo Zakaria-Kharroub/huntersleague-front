@@ -1,42 +1,78 @@
 <div class="container-fluid users-container">
   <h2 class="mb-4">Gestion des Utilisateurs</h2>
 
+  <div *ngIf="loading" class="text-center py-4" aria-live="polite">
+    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900" role="status">
+      <span class="sr-only">chargemets</span>
+    </div>
+  </div>
+<!--  message error-->
+  <div *ngIf="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
+    {{ error }}
+  </div>
+
   <div class="table-responsive">
     <table class="table table-hover user-table">
       <thead>
       <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Nom d'utilisateur</th>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>username</th>
         <th>Email</th>
         <th>CIN</th>
         <th>Rôle</th>
         <th>Nationalité</th>
-        <th>Date d'inscription</th>
         <th>Actions</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>Doe</td>
-        <td>John</td>
-        <td>johndoe</td>
-        <td>john.doe.com</td>
-        <td>AB123456</td>
-        <td>Utilisateur</td>
-        <td>Français</td>
-        <td>01/01/2023</td>
+      <tr *ngFor="let user of users">
+        <td>{{user.lastName}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.cin}}</td>
+        <td>{{user.role}}</td>
+        <td>{{user.nationality}}</td>
         <td>
           <button class="btn btn-sm btn-primary me-2">
             <i class="bi bi-pencil"></i>
           </button>
-          <button class="btn btn-sm btn-danger">
+          <button (click)="deleteUser(user.id)" aria-label="delete user" class="btn btn-sm btn-danger">
             <i class="bi bi-trash"></i>
           </button>
         </td>
       </tr>
-      <!-- Add more rows as needed -->
       </tbody>
     </table>
   </div>
+<!--pagination blpage o size-->
+  <nav class="flex items-center justify-between mt-4" aria-label="Pagination">
+    <div class="flex items-center">
+      <span class="text-small pb-5 ps-2 text-gray-700">
+        page {{ currentPage + 1 }}
+      </span>
+    </div>
+    <div class="flex space-x-2">
+      <button
+        [disabled]="currentPage === 0"
+        (click)="onPageChange(currentPage - 1)"
+        class="px-3 py-1 rounded border"
+        [class.opacity-50]="currentPage === 0"
+        [attr.aria-disabled]="currentPage === 0"
+      >
+        previouse
+      </button>
+      <button
+        [disabled]="currentPage === totalPages - 1"
+        (click)="onPageChange(currentPage + 1)"
+        class="px-3 py-1 rounded border"
+        [class.opacity-50]="currentPage === totalPages - 1"
+        [attr.aria-disabled]="currentPage === totalPages - 1"
+      >
+        suivant
+      </button>
+    </div>
+  </nav>
+
 </div>
