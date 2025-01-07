@@ -1,0 +1,135 @@
+.statistique-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.statistique-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2C3E50;
+}
+
+.statistique-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.stat-icon i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-content h3 {
+  font-size: 16px;
+  color: #6c757d;
+  margin: 0 0 5px 0;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #2C3E50;
+}
+
+.stat-change {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.stat-change i {
+  margin-right: 5px;
+}
+
+.stat-change.positive {
+  color: #28a745;
+}
+
+.stat-change.negative {
+  color: #dc3545;
+}
+
+.bg-primary {
+  background-color: #3498DB;
+}
+
+.bg-success {
+  background-color: #2ecc71;
+}
+
+.bg-info {
+  background-color: #3498db;
+}
+
+.bg-warning {
+  background-color: #f1c40f;
+}
+
+/* Styles pour la section des graphiques */
+.charts-section {
+  margin-top: 40px;
+}
+
+.charts-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2C3E50;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.chart-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+  .statistique-grid,
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
